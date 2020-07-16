@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  runner:
+    build: .
+    volumes:
+      - ./mount_point/opt/idea:/opt/idea
+      - ./mount_point/home/vagrant:/home/vagrant
+    working_dir: /home/vagrant
+    command: bash
