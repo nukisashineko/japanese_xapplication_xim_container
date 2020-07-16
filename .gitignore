@@ -1,0 +1,4 @@
+mount_point/opt/idea/*
+!mount_point/opt/idea/.gitkeep
+
+mount_point/home/vagrant/*
