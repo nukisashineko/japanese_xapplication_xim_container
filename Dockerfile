@@ -34,6 +34,9 @@ RUN apt update \
 
 RUN rm -vf /var/lib/apt/lists/* && apt-get update &&  apt install -y git
 
+RUN apt install -y vim ibus-mozc
+
+
 # Boot process
 COPY mount_point/etc/supervisord.conf /etc
 COPY mount_point/var/tmp/docker-entrypoint.sh /var/tmp
