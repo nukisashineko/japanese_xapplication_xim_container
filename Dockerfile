@@ -34,8 +34,7 @@ RUN apt update \
 
 RUN rm -vf /var/lib/apt/lists/* && apt-get update &&  apt install -y git
 
-RUN apt install -y vim ibus-mozc
-
+RUN apt install -y vim fcitx-mozc fcitx-libs-dev
 
 # Boot process
 COPY mount_point/etc/supervisord.conf /etc
