@@ -31,6 +31,9 @@ RUN apt update \
  && apt clean \
  && rm -rf /var/lib/apt/lists/*
 
+
+RUN rm -vf /var/lib/apt/lists/* && apt-get update &&  apt install -y git
+
 # Boot process
 COPY mount_point/etc/supervisord.conf /etc
 COPY mount_point/var/tmp/docker-entrypoint.sh /var/tmp

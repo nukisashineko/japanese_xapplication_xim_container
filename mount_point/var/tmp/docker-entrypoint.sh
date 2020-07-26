@@ -42,7 +42,6 @@ assert_env_defined () {
   : "Add common groups" && {
     usermod -aG sudo ${USER_NAME}
   }
-
 }
 
 : "Start supervisord" && {

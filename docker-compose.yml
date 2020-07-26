@@ -10,7 +10,7 @@ services:
       - USER_NAME
       - USER_ID
       - GROUP_ID
+      - DISPLAY
     working_dir: /mnt/working
-
 
 
