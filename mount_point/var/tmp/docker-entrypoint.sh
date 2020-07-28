@@ -47,7 +47,6 @@ assert_env_defined () {
     echo 'Defaults visiblepw'                  >> /etc/sudoers
     echo "${USER_NAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
   }
-
 }
 
 : "Start supervisord" && {

@@ -1,28 +1,19 @@
 FROM ubuntu:18.04
+# install tzdata without interpreter (to avoid TTY problem around installing gnome)
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y tzdata
-# timezone setting
+## timezone setting
 ENV TZ=Asia/Tokyo
 
-
+# install gnome (for Xim)
 RUN apt update -y && apt upgrade -y
 RUN apt install -y --no-install-recommends apt-utils
 RUN apt install ubuntu-desktop -y
 
-# add vagrant sudoer user
-RUN apt install sudo -y
-#RUN useradd -rm -d /home/vagrant -s /bin/bash -G sudo vagrant
-#USER vagrant
-#WORKDIR /home/vagrant
-#RUN pwconv
-#SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-#RUN echo 'vagrant:xpasswordx' | chpasswd 
-
-#ENTRYPOINT []
 # Use mirror repository
 RUN sed -i.bak -e "s%http://[^ ]\+%mirror://mirrors.ubuntu.com/mirrors.txt%g" /etc/apt/sources.list
 
-# Install prerequisite packages
+# Install prerequisite packages (for docker-entrypoint.sh)
 RUN apt update \
  && apt -yq dist-upgrade \
  && apt install -yq --no-install-recommends \
@@ -32,9 +23,15 @@ RUN apt update \
  && rm -rf /var/lib/apt/lists/*
 
 
+# install git, vim and mozc (after recovery apt/list)
 RUN rm -vf /var/lib/apt/lists/* && apt-get update &&  apt install -y git
-
 RUN apt install -y vim fcitx-mozc fcitx-libs-dev
+
+# install Japanese Team language addtion package (for locale ja_JP.UTF8)
+RUN ( wget -q https://www.ubuntulinux.jp/ubuntu-ja-archive-keyring.gpg -O- | sudo apt-key add - ) \
+  && ( wget -q https://www.ubuntulinux.jp/ubuntu-jp-ppa-keyring.gpg -O- | sudo apt-key add - ) \
+  && ( wget https://www.ubuntulinux.jp/sources.list.d/bionic.list -O /etc/apt/sources.list.d/ubuntu-ja.list ) \
+  && ( apt update && apt upgrade -y && apt install -y ubuntu-defaults-ja )
 
 # Boot process
 COPY mount_point/etc/supervisord.conf /etc
