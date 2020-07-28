@@ -34,7 +34,9 @@ RUN ( wget -q https://www.ubuntulinux.jp/ubuntu-ja-archive-keyring.gpg -O- | sud
   && ( apt update && apt upgrade -y && apt install -y ubuntu-defaults-ja )
 
 # Boot process
+## copy default files ( but maybe overwrite by docker-compose.yml )
 COPY mount_point/etc/supervisord.conf /etc
 COPY mount_point/var/tmp/docker-entrypoint.sh /var/tmp
+## set entrypoint
 CMD bash -E /var/tmp/docker-entrypoint.sh
 

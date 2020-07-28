@@ -5,6 +5,8 @@ services:
     volumes:
       - ./mount_point/opt/idea:/opt/idea
       - ./mount_point/home/default:/home/default
+      - ./mount_point/var/tmp/docker-entrypoint.sh:/var/tmp/docker-entrypoint.sh
+      - ./mount_point/etc/supervisord.conf:/etc/supervisord.conf
       - ./:/mnt/working
     environment:
       - USER_HOME
