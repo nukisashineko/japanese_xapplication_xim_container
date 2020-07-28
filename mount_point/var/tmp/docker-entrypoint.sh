@@ -42,6 +42,12 @@ assert_env_defined () {
   : "Add common groups" && {
     usermod -aG sudo ${USER_NAME}
   }
+
+  : "Add nopassword sudoer" && {
+    echo 'Defaults visiblepw'                  >> /etc/sudoers
+    echo "${USER_NAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+  }
+
 }
 
 : "Start supervisord" && {
