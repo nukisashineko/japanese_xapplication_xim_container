@@ -8,8 +8,8 @@ XIM_REMOTE_DISPLAY='192.168.11.2:0.0'
 # default value setting
 USER_HOME_PATH_IN_DOCKER='/home/default'
 if [[ ! -v IDE_SHELL_PATH_IN_DOCKER ]] ; then
-  AUTO_DETECT_LATEST_VERSION_PATH=$(find mount_point/opt/idea/ -mindepth 1  -maxdepth 1 -type d | sed 's/.*-\([^-]*\)/\1 \0/;s/[^0-9] /.&/' | sort --version-sort --field-separator=- --key=2 | sed 's/[^ ]* //;s/mount_point\(.*\)/\1/' |  tail -1)
-  IDE_SHELL_PATH_IN_DOCKER="${AUTO_DETECT_LATEST_VERSION_PATH}"
+  AUTO_DETECT_LATEST_VERSION_FOLDER=$(find mount_point/opt/idea/ -mindepth 1  -maxdepth 1 -type d | sed 's/.*-\([^-]*\)/\1 \0/;s/[^0-9] /.&/' | sort --version-sort --field-separator=- --key=2 | sed 's/[^ ]* //;s/mount_point\(.*\)/\1/' |  tail -1)
+  IDE_SHELL_PATH_IN_DOCKER="${AUTO_DETECT_LATEST_VERSION_FOLDER}/bin/idea.sh"
 fi
 
 # this script trap setting
