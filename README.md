@@ -1,10 +1,29 @@
+# abstract 
+Japanese Xapplication container ( runnable idea.sh with mozc on wsl )
+
+# VM Host Setting
+Please xim client application install.   
+Check run your xapplication (xeyes etc.) from any vm when you set only "export DISPLAY=XXX.XXX.XXX.XXX:0.0"  
+## for Windows
+- VcXsrv
+- X410
+    - (maybe require "Allow public access")
+
+## for Mac 
+( comming soon ... )
 
 
-USER_NAME=$(whoami)   USER_ID=$(id -u)   GROUP_ID=$(id -g) DISPLAY=192.168.11.2:0.0  docker-compose up
+# usage
+## script file setting
+change "user setting" of bin/start_idea.sh
+```bash
+vim bin/donwload_idea.sh
+vim bin/start_idea.sh
+```
 
-
-docker exec -it idea_docker_runner_1 su - root
-passwd nukisashineko
-
-docker exec -it idea_docker_runner_1 su - $(whoami)
-source .xprofile &&  sudo service dbus start  && sudo update-locale LANG=ja_JP.UTF8  && fcitx-autostart && /opt/idea/idea-IU-201.7223.91/bin/idea.sh
+## run
+```bash
+cd `pwd`/`git rev-parse --show-cdup`
+bash bin/donwload_idea.sh 
+bash bin/start_idea.sh 
+```
