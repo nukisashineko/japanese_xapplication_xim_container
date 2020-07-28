@@ -38,6 +38,26 @@ bash bin/start_idea.sh
 ```
 
 # other hint
+### bin/start_idea.sh error
+#### Q. error OCI runtime 
+```text
+~/workspace/xim_japanese_docker_container$ bash bin/start_idea.shStarting xim_japanese_docker_container_runner_1 ... error
+
+ERROR: for xim_japanese_docker_container_runner_1  Cannot start service runner: OCI runtime create failed: container_linux.go:349: starting container process caused "process_linux.go:449: container init caused \"rootfs_linux.go:58: mounting \\\"/run/desktop/mnt/host/wsl/docker-desktop-bind-mounts/WLinux/428b987a781a813911f379ffcd891c371463c0ba23bc848c9c41d474cacc6ee6\\\" to rootfs \\\"/var/lib/docker/overlay2/8bf6cc8eb3e7bd64543bde490bd85347cba04adbd6ac4a64b0bed440f6fe683f/merged\\\" at \\\"/var/lib/docker/overlay2/8bf6cc8eb3e7bd64543bde490bd85347cba04adbd6ac4a64b0bed440f6fe683f/merged/var/tmp/docker-entrypoint.sh\\\" caused \\\"no such file or directory\\\"\"": unknown
+
+ERROR: for runner  Cannot start service runner: OCI runtime create failed: container_linux.go:349: starting container process caused "process_linux.go:449: container init caused \"rootfs_linux.go:58: mounting \\\"/run/desktop/mnt/host/wsl/docker-desktop-bind-mounts/WLinux/428b987a781a813911f379ffcd891c371463c0ba23bc848c9c41d474cacc6ee6\\\" to rootfs \\\"/var/lib/docker/overlay2/8bf6cc8eb3e7bd64543bde490bd85347cba04adbd6ac4a64b0bed440f6fe683f/merged\\\" at \\\"/var/lib/docker/overlay2/8bf6cc8eb3e7bd64543bde490bd85347cba04adbd6ac4a64b0bed440f6fe683f/merged/var/tmp/docker-entrypoint.sh\\\" caused \\\"no such file or directory\\\"\"": unknown
+ERROR: Encountered errors while bringing up the project.
+something error happening
+ERROR: No container found for runner_1
+something error happening
+... waiting for finish docker-entry-point.sh
+```
+#### A. compose down plz
+```bash
+docker-compose down
+```
+
+
 ### debug (if you want)
 ```bash
 # compose up
