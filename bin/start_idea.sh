@@ -3,6 +3,7 @@
 # user setting
 IDE_SHELL_PATH_IN_DOCKER='/opt/idea/idea-IU-201.7223.91/bin/idea.sh'
 USER_HOME_PATH_IN_DOCKER='/home/default'
+XIM_REMOTE_DISPLAY='192.168.11.2:0.0'
 
 # this script trap setting
 ## setting trap
@@ -21,7 +22,7 @@ function finally {
 
 # run IDE
 ## run docker container and create current login user (same uid and same gid is to avoid mount and sync owner problem)
-USER_HOME="${USER_HOME_PATH_IN_DOCKER}" USER_NAME=$(whoami) USER_ID=$(id -u) GROUP_ID=$(id -g) DISPLAY=192.168.11.2:0.0  docker-compose up -d
+USER_HOME="${USER_HOME_PATH_IN_DOCKER}" USER_NAME=$(whoami) USER_ID=$(id -u) GROUP_ID=$(id -g) DISPLAY=${XIM_REMOTE_DISPLAY} docker-compose up -d
 
 ## check to created current login user as nopasswd sudoer
 while [ 1 ]; do
