@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# MOZC SERVER REQUIRE NON ROOT USER. So this entrypoint create non root user.
 # link: https://blog.amedama.jp/entry/docker-container-host-same-user-bis
 set -Ceux
 
@@ -25,7 +26,7 @@ assert_env_defined () {
   # use $USER_HOME if specify USER_HOME
   : "Set home directory" && {
     DEFAULT_USER_HOME="/home/${USER_NAME}"
-    if [[ ! -v USER_HOME ]] ; then
+    if [[ 
       USER_HOME=${DEFAULT_USER_HOME}
     fi
     export HOME=$USER_HOME
