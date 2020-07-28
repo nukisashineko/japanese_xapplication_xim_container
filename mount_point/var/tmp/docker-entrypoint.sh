@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# link: https://blog.amedama.jp/entry/docker-container-host-same-user-bis
 set -Ceux
 
 assert_env_defined () {
@@ -21,6 +22,7 @@ assert_env_defined () {
     set -e  # enable error check
   }
 
+  # use $USER_HOME if specify USER_HOME
   : "Set home directory" && {
     DEFAULT_USER_HOME="/home/${USER_NAME}"
     if [[ ! -v USER_HOME ]] ; then
