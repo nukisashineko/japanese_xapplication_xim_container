@@ -52,10 +52,11 @@ ERROR: No container found for runner_1
 something error happening
 ... waiting for finish docker-entry-point.sh
 ```
-#### A. compose down plz
+#### A. compose down plz ( or maybe reboot)
 ```bash
 docker-compose down
 ```
+
 
 
 ### debug (if you want)
