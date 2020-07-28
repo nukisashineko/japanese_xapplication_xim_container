@@ -4,9 +4,10 @@ services:
     build: .
     volumes:
       - ./mount_point/opt/idea:/opt/idea
-      - ./mount_point/home/nukisashineko:/home/nukisashineko
+      - ./mount_point/home/default:/home/default
       - ./:/mnt/working
     environment:
+      - USER_HOME
       - USER_NAME
       - USER_ID
       - GROUP_ID

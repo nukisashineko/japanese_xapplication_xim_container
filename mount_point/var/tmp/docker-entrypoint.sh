@@ -22,7 +22,12 @@ assert_env_defined () {
   }
 
   : "Set home directory" && {
-    export HOME=/home/${USER_NAME}
+    DEFAULT_USER_HOME="/home/${USER_NAME}"
+    if [[ ! -v USER_HOME ]] ; then
+      USER_HOME=${DEFAULT_USER_HOME}
+    fi
+    export HOME=$USER_HOME
+    usermod -d ${USER_HOME} ${USER_NAME}
   }
 
   : "Change user id" && {
