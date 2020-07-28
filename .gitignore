@@ -1,5 +1,8 @@
 mount_point/opt/idea/*
 !mount_point/opt/idea/.gitkeep
 
-mount_point/home/nukisashineko/*
-!mount_point/home/nukisashineko/.gitkeep
+mount_point/home/default/*
+!mount_point/home/default/.gitkeep
+
+supervisord.log
+supervisord.pid
