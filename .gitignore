@@ -1,8 +1,10 @@
-mount_point/opt/idea/*
+mount_point/opt/idea
 !mount_point/opt/idea/.gitkeep
 
-mount_point/home/default/*
+mount_point/home/default
 !mount_point/home/default/.gitkeep
+!mount_point/home/default/.xprofile
+!mount_point/home/default/examples.desktop
 
 supervisord.log
 supervisord.pid
