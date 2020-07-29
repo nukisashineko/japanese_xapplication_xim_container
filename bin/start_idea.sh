@@ -3,7 +3,9 @@
 # user setting
 SETTING_FCITX_AND_MOZC=1 # 1 or 0
 # IDE_SHELL_PATH_IN_DOCKER='/opt/idea/idea-IU-201.7223.91/bin/idea.sh'
-XIM_REMOTE_DISPLAY='192.168.11.2:0.0'
+#XIM_REMOTE_DISPLAY='192.168.11.2:0.0'
+XIM_REMOTE_DISPLAY='host.docker.internal:0.0' # if you use WSL and Docker Desktop for Windows
+#XIM_REMOTE_DISPLAY='docker.for.mac.localhost:0.0' # if you use Mac and docker for mac
 
 # default value setting
 USER_HOME_PATH_IN_DOCKER='/home/default'
