@@ -48,7 +48,7 @@ done;
 docker-compose exec runner su - $(whoami) -s /bin/bash -c 'sudo update-locale LANG=ja_JP.UTF8'
 docker-compose exec runner su - $(whoami) -s /bin/bash -c 'locale && fcitx-autostart'
 ### fcitx and mozc setting
-if [[ -v SETTING_FCITX_AND_MOZC ]] && [[ ${SETTING_FCITX_AND_MOZC} -eq 1 ]] ; then
+if [[ ! -z ${SETTING_FCITX_AND_MOZC+x} ]] && [[ ${SETTING_FCITX_AND_MOZC} -eq 1 ]] ; then
   docker-compose exec runner su - $(whoami) -s /bin/bash -c 'source .xprofile && fcitx-configtool && /usr/lib/mozc/mozc_tool --mode=config_dialog'
 fi
 ## run

@@ -26,7 +26,7 @@ assert_env_defined () {
   # use $USER_HOME if specify USER_HOME
   : "Set home directory" && {
     DEFAULT_USER_HOME="/home/${USER_NAME}"
-    if [[  ! -v USER_HOME ]] ; then
+    if [[  ! -z ${USER_HOME+x} ]] ; then
       USER_HOME=${DEFAULT_USER_HOME}
     fi
     export HOME=$USER_HOME
