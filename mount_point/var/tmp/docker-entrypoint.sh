@@ -43,6 +43,9 @@ assert_env_defined () {
   : "Change group id" && {
     assert_env_defined GROUP_ID
     if [ $(id -g ${USER_NAME}) -ne ${GROUP_ID} ]; then
+      if grep -q ${GROUP_ID} /etc/group ; then
+        groupadd -g ${GROUP_ID} templorary_create_group
+      fi
       usermod -g ${GROUP_ID} ${USER_NAME}
     fi
   }
