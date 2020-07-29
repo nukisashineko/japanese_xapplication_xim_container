@@ -49,8 +49,8 @@ docker-compose exec runner su - $(whoami) -s /bin/bash -c 'sudo update-locale LA
 docker-compose exec runner su - $(whoami) -s /bin/bash -c 'locale && fcitx-autostart'
 ### fcitx and mozc setting
 if [[ ! -z ${SETTING_FCITX_AND_MOZC+x} ]] && [[ ${SETTING_FCITX_AND_MOZC} -eq 1 ]] ; then
-  docker-compose exec runner su - $(whoami) -s /bin/bash -c 'source $HOME/.xprofile && fcitx-configtool && /usr/lib/mozc/mozc_tool --mode=config_dialog'
+  docker-compose exec runner su - $(whoami) -s /bin/bash -c "source ${USER_HOME_PATH_IN_DOCKER}/.xprofile && fcitx-configtool && /usr/lib/mozc/mozc_tool --mode=config_dialog"
 fi
 ## run
-docker-compose exec runner su - $(whoami) -s /bin/bash -c "source \$HOME/.xprofile && ${IDE_SHELL_PATH_IN_DOCKER}"
+docker-compose exec runner su - $(whoami) -s /bin/bash -c "source ${USER_HOME_PATH_IN_DOCKER}/.xprofile && ${IDE_SHELL_PATH_IN_DOCKER}"
 
