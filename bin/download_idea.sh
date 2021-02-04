@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # user setting
-IDE_DOWNLOAD_URL='https://download-cf.jetbrains.com/idea/ideaIU-2020.1.3.tar.gz'
+IDE_DOWNLOAD_URL='https://download-cf.jetbrains.com/idea/ideaIU-2020.3.2.tar.gz'
 TAR_GZ_FILE_PATH='ideaIU-2020.1.3.tar.gz'
 
 # download and extract
