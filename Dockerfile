@@ -41,6 +41,8 @@ ENV DOCKER_CLIENT_VERSION=20.10.2
 ENV DOCKER_API_VERSION=1.41
 RUN curl -fsSL https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_CLIENT_VERSION}.tgz \
   | tar zxv -C /usr/local/bin --strip=1 docker/docker
+RUN curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+
 # Boot process
 ## copy default files ( but maybe overwrite by docker-compose.yml )
 COPY mount_point/etc/supervisord.conf /etc
