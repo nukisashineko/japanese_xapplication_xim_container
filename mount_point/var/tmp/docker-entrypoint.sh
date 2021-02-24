@@ -50,6 +50,10 @@ assert_env_defined () {
   : "Add common groups" && {
     usermod -aG sudo ${USER_NAME}
   }
+  : "Add docker groups" && {
+    sudo groupadd docker --gid ${GROUP_ID_DOCKER}
+    usermod -aG docker ${USER_NAME}
+  }
 
   : "Add nopassword sudoer" && {
     echo 'Defaults visiblepw'                  >> /etc/sudoers

@@ -14,6 +14,7 @@ services:
       - USER_NAME
       - USER_ID
       - GROUP_ID
+      - GROUP_ID_DOCKER
       - DISPLAY
     working_dir: /mnt/working
     privileged: true
