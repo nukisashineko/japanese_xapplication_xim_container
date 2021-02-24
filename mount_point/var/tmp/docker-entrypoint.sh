@@ -53,6 +53,7 @@ assert_env_defined () {
   : "Add docker groups" && {
     sudo groupadd docker --gid ${GROUP_ID_DOCKER}
     usermod -aG docker ${USER_NAME}
+    chown root:docker /usr/local/bin/docker-compose
   }
 
   : "Add nopassword sudoer" && {
